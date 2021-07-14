@@ -3,7 +3,7 @@ This is a youtube-clone
 This project was bootstrapped with Create React App.
 
 ## Demo
-
+["https://inspiring-benz-eeda7f.netlify.app/"]
 
 ## How to run this application
 
