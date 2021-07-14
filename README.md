@@ -1,4 +1,4 @@
-### Youtube-Clone
+# Youtube-Clone
 This is a youtube-clone
 This project was bootstrapped with Create React App.
 
