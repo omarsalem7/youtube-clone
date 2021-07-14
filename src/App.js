@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/navbar/Navbar";
+import "./App.css";
+import VideoList from "./components/videoList/VideoList";
+import youtube from "./components/youtube/Youtube";
 
 function App() {
+  const [state, setVideo] = useState({ mainVideo: null, videos: [] });
+  const handleSubmit = async (searchTerm) => {
+    const response = await youtube.get("search", {
+      params: {
+        part: "snippet",
+        maxResults: 8,
+        key: "AIzaSyAiOXNLDMARcP25gGrhWJof3OSGmqAgpkY",
+        q: searchTerm,
+      },
+    });
+    console.log(response.data.items);
+    setVideo({
+      mainVideo: response.data.items[0],
+      videos: response.data.items,
+    });
+  };
+  useEffect(() => {
+    handleSubmit("react js");
+  }, []);
+  const onSelectVideo = (video) => {
+    setVideo({ ...state, mainVideo: video });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onSubmitForm={handleSubmit} />
+      <VideoList
+        mainVideo={state.mainVideo}
+        onSelectVideo={onSelectVideo}
+        videos={state.videos}
+      />
     </div>
   );
 }

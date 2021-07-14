@@ -1,0 +1,21 @@
+.box {
+  background-color: #181818;
+  height: 10%;
+  margin: 0px 25px;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 10%;
+  font-size: 15px;
+  overflow: hidden;
+}
+.box:hover {
+  cursor: pointer;
+}
+.info {
+  padding: 0 10px;
+}
+.username {
+  font-size: 13px;
+  color: #595959;
+}
