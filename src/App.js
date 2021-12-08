@@ -11,7 +11,7 @@ function App() {
       params: {
         part: "snippet",
         maxResults: 8,
-        key: "AIzaSyAiOXNLDMARcP25gGrhWJof3OSGmqAgpkY",
+        key: "",
         q: searchTerm,
       },
     });
